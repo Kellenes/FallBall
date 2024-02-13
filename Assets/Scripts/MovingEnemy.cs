@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingEnemy : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    static public float speed;
     [SerializeField] private GameObject player;
     private Vector3 target;
 
@@ -26,7 +26,7 @@ public class MovingEnemy : MonoBehaviour
     {
         if (transform.position.y == player.transform.position.y)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
         }
     }
 }
