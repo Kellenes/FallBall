@@ -5,6 +5,8 @@ public class EnemySpawn : MonoBehaviour
 {
     //[SerializeField] private GameObject spawner;
     [SerializeField] private GameObject EnemyPrefab;
+    static public float waitTime = 1.5f;
+    static public float objectsCount = 1;
 
 
     private void Start() {
@@ -13,13 +15,17 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator spaswnKD()
     {
-        yield return new WaitForSeconds(Random.Range((float)0.7, (float)1.8));
+        yield return new WaitForSeconds(waitTime);
         Spawn();
     }
 
     public void Spawn()
     {
-        Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
+        for (int i = 0; i < objectsCount; i++)
+        {
+            Instantiate(EnemyPrefab, transform.position + new Vector3(Random.Range(-2.6f, 2.6f), 0), Quaternion.identity);
+            
+        }
         StartCoroutine("spaswnKD");
     }
 }

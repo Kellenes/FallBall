@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class MovingEnemy : MonoBehaviour
 {
-    static public float speed;
+    static public float speed = 6.5f;
+    static public float radius = 2.6f;
     [SerializeField] private GameObject player;
     private Vector3 target;
+    public Canvas options;
 
 
     private void Start() {
-        target = player.transform.position + new Vector3(Random.Range(-2f, 2f), 0);
+        target = player.transform.position + new Vector3(Random.Range(-radius, radius), 0);
     }
 
     private void Update() {
@@ -26,7 +28,7 @@ public class MovingEnemy : MonoBehaviour
     {
         if (transform.position.y == player.transform.position.y)
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(0);
         }
     }
 }

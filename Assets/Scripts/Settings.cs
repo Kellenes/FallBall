@@ -8,6 +8,11 @@ public class Settings : MonoBehaviour
         Application.Quit();
     }
 
+    public void openMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void startGame()
     {
         SceneManager.LoadScene(1);
